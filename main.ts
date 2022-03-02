@@ -1,3 +1,23 @@
+namespace otto_microbit {
+    //%blockid = bal_kanyar
+    //%block = "bal_kanyar  $szám"
+    //%blockid = jobb_kanyar
+    //%block = "jobb_kanyar  $szám"
+    //%blockid = hátra
+    //%block = "hátra  $szám"
+    //%blockid = előre
+    //%block = "előre  $szám"
+    //%blockid = alap
+    //%block = "alap"
+    //%blockid = kalibrál
+    //%block = "kalibrál  $servo1 $servo2 $servo3 $servo4"
+
+
+
+let jobb_talp = 0
+let bal_talp = 0
+let bal_lab = 0
+let jobb_lab = 0
 function bal_kanyar (szám: number) {
     for (let index = 0; index < szám; index++) {
         kitronik_i2c_16_servo.servoWrite(kitronik_i2c_16_servo.Servos.Servo2, jobb_talp + 5)
@@ -120,25 +140,10 @@ function alap () {
     kitronik_i2c_16_servo.servoWrite(kitronik_i2c_16_servo.Servos.Servo4, bal_talp)
     basic.pause(500)
 }
-function kalibrálás (servo1: number, servo2: number, servo3: number, servo4: number) {
+function kalibrál (servo1: number, servo2: number, servo3: number, servo4: number) {
     jobb_lab = servo1
     jobb_talp = servo2
     bal_lab = servo3
     bal_talp = servo4
 }
-let jobb_lab = 0
-let bal_lab = 0
-let bal_talp = 0
-let jobb_talp = 0
-kalibrálás(87, 89, 78, 87)
-alap()
-basic.forever(function () {
-    basic.pause(500)
-    jobb_kanyar(8)
-    alap()
-    basic.pause(1000)
-    bal_kanyar(8)
-    basic.pause(500)
-    alap()
-    basic.pause(500)
-})
+}

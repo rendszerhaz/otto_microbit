@@ -1,3 +1,4 @@
+//% groups=['bal_kanyar', 'jobb_kanyar', 'hátra', 'előre', 'alap', 'kalibrál']
 namespace otto_microbit {
     //%blockid = bal_kanyar
     //%block = "bal_kanyar  $szám"
